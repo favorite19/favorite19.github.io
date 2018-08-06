@@ -1,44 +1,5 @@
-<!DOCTYPE html>
-<!-- JavaScript & jQuery 版本-->
-
-<!-- HTML part -->
-
 <form action="/somewhere/to/upload" enctype="multipart/form-data">
 
-   <input type="file" id="progressbarTWInput" accept="image/gif, image/jpeg, image/png"/ >
-
-   <img id="preview_progressbarTW_img" src="#" />
+<input name="progressbarTW_img" type="file" accept="image/gif, image/jpeg, image/png">
 
 </form>
-
-<!-- JavaScript part -->
-
-<script>
-
-$("#progressbarTWInput").change(function(){
-
-  readURL(this);
-
-});
-
- 
-
-function readURL(input){
-
-  if(input.files && input.files[0]){
-
-    var reader = new FileReader();
-
-    reader.onload = function (e) {
-
-       $("#preview_progressbarTW_img").attr('src', e.target.result);
-
-    }
-
-    reader.readAsDataURL(input.files[0]);
-
-  }
-
-}
-
-</script>
