@@ -1,89 +1,44 @@
 <!DOCTYPE html>
-<html>
- <head>
-  <title>web</title>
-  <meta charset="utf-8" />
-  <link rel="stylesheet" type="text/css" href="CSS/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="CSS/bootstrap/css/bootstrap-theme.min.css"> 
-  <link rel="stylesheet" type="text/css" href="CSS/bootstrap/js/bootstrap.min.js">
- </head> 
- <body>
- <div class="col-md-4 col-md-offset-4">
-   <form name="input" action="https://ecourse.nutn.edu.tw/" method="get">
+<!-- JavaScript & jQuery 版本-->
+
+<!-- HTML part -->
+
+<form action="/somewhere/to/upload" enctype="multipart/form-data">
+
+   <input type="file" id="progressbarTWInput" accept="image/gif, image/jpeg, image/png"/ >
+
+   <img id="preview_progressbarTW_img" src="#" />
+
+</form>
+
+<!-- JavaScript part -->
+
+<script>
+
+$("#progressbarTWInput").change(function(){
+
+  readURL(this);
+
+});
+
  
-   <div class="form-group">
-       <label><h1>TeaAndCake 訂購單</h1></label>
-   </div></br>
-   <fieldset>
-   <div class="form-group">
-	   <legend>基本資料</legend>
-	   <label for="訂購者姓名">訂購者姓名:</label>
-       <input id="訂購者姓名" class="form-control" type="text" name="username" placeholder="輸入真實姓名" required="required" /></br></br>
-	</div>
-	<div class="form-group">
-	
-	   <label for="性別">性別:</label>
-	   <input type="radio" name="sex" value="boy" checked="checked" /> 男
-	   <input type="radio" name="sex" value="girl" /> 女
-	</br></br>
-	</div></fieldset>
-	
-	<fieldset>
-	<div class="form-group">
-	   <legend>聯絡方式</legend>
-       <label for="住址">住址:</label>
-	   <input input id="住址" class="form-control"type="text" name="address" placeholder="輸入真實住址"required="required" /></br></br>
-	</div>
-	<div class="form-group">
-	   <label for="電子信箱">電子信箱:</label>
-	   <input input id="電子信箱" class="form-control"type="email" name="email" placeholder="輸入有效信箱" required="required"/></br></br>
-	</div>
-	<div class="form-group">
-	   <label for="電話">手機:</label>
-	   <input input id="手機" class="form-control"type="telephone" name="phone" placeholder="輸入有效電話" required="required"/></br></br>
-    </div></fieldset>
-	
-	<fieldset>
-	<div class="form-group">
-	   <legend>出貨細節</legend>
-	   <label for="數量">數量:</label>
-	   <select name="devices">
-	   <option value="number">0</option>
-	   <option value="number">1</option>
-	   <option value="number">2</option>
-	   <option value="number">3</option>
-	   <option value="number">4</option>
-	   <option value="number">5</option>
-	   <option value="number">6</option>
-	   <option value="number">7</option>
-	   <option value="number">8</option>
-	   <option value="number">9</option>
-	   <option value="number">10</option>
-	  </select>
-	  </br></br>
-	 </div>
-	 <div class="form-group">
-	   <label for="送貨時間">可送貨時間(可複選):</label>
-	   <input type="checkbox" name="service" value="早上9:00-11:00" checked="checked" />早上9:00-11:00
-	   <input type="checkbox" name="service" value="早上9:00-14:00" /> 中午11:00-14:00
-	   <input type="checkbox" name="service" value="下午14:00-17:00" /> 下午14:00-17:00
-	   <input type="checkbox" name="service" value="晚上17:00-21:00" /> 晚上17:00-21:00
-	 </div></br></br>
-	 <div class="form-group">
-	   <label for="付錢方式">付錢方式:</label>
-	   <select name="devices">
-	     <option value="線上信用卡給付">線上信用卡給付</option>
-	     <option value="銀行轉帳">銀行轉帳</option>
-	     <option value="貨到付款">貨到付款</option>
-	   </select>
-	    </br></br></div>
-	 <div class="form-group">
-	    <label for="送貨日期">送貨日期:</label>
-	    <input type="date" name="depart" />
-	
-	    <button type="button" onclick="alert('Hello world!')">Click Me!</button>
-	</fieldset></div>
-  </form>
-</div>
-</body>
-</html>
+
+function readURL(input){
+
+  if(input.files && input.files[0]){
+
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+
+       $("#preview_progressbarTW_img").attr('src', e.target.result);
+
+    }
+
+    reader.readAsDataURL(input.files[0]);
+
+  }
+
+}
+
+</script>
